@@ -1,5 +1,5 @@
 #import os builtin module
-import os 
+import os
 
 #new names list
 new_names = ["text1.txt", "text2.txt", "text3.txt", "text4.txt", "text5.txt"]
@@ -14,17 +14,20 @@ files_list_len = len(files_list)
 
 #loop through files list
 for idx in range(files_list_len):
-  #check if idx is greater than new names list length and if so raise an exception
-  if idx == new_names_len:
-    raise Exception("No new name available for file")
 
-  #current file name
-  file_name = files_list[idx]
-  #new file name
-  new_name =  new_names[idx]
+    #check if idx is equal to new names list length and if so raise an exception
+    if idx == new_names_len:
+        raise Exception("No new name available for file")
 
-  #create old and new file paths
-  old_folder_path = os.path.join(folder_path, file_name)
-  new_folder_path = os.path.join(folder_path, new_name)
-  #rename file
-  os.rename(old_folder_path, new_folder_path)
+    #current file name
+    file_name = files_list[idx]
+
+    #new file name
+    new_name = new_names[idx]
+
+    #create old and new file paths
+    old_path = os.path.join(folder_path, file_name)
+    new_path = os.path.join(folder_path, new_name)
+
+    #rename file
+    os.rename(old_path, new_path)
